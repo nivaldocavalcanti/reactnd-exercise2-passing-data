@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
+import ListItem from './ListItem';
 
 class ListUsers extends Component {
     render() {
-        const users = this.props.users;
-        return {users.map((user)=>(
-            <li key={user.id}>{user.name}</li>
-        ))}
+        return (
+            <ul>
+            {this.props.users.map((user)=>
+                <ListItem key={user.id} username={user.name} />
+            )}
+            </ul>
+        )
     }
 }
 

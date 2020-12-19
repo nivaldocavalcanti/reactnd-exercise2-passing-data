@@ -58,7 +58,7 @@ const users = {
     userName: 'user123',
   },
   4: {
-    id: 3,
+    id: 4,
     name: 'John Doe',
     userName: 'user123',
   },
@@ -106,7 +106,7 @@ class App extends Component {
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
         <h2>How Popular is Your Favorite Movie?</h2>
-		<ListMovies profiles={profiles} users={users} movies={movies} />
+		    <ListMovies profiles={profiles} users={users} movies={movies} />
       </div>
     );
   }

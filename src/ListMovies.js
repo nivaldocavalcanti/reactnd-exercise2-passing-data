@@ -12,25 +12,25 @@ class ListMovies extends Component {
           users_movies[profile.favoriteMovieID]= {users: [{id: profile.userID, name: users[profile.userID].name}]};
         }
         users_movies[profile.favoriteMovieID].name = movies[profile.favoriteMovieID].name;
+        return profile;
       });
       Object.entries(movies).forEach(([key, movie]) => {
-        if(users_movies[movie.id] == undefined) {
-          users_movies[movie.id] = {name: movie.name, users: [{id: 0, name: "None of the current users liked this movie"}]}
+        if(users_movies[movie.id] === undefined) {
+          users_movies[movie.id] = {name: movie.name, users: [{id: "0", name: "None of the current users liked this movie"}]}
         }
-        console.log(users_movies[movie.id].name, users_movies[movie.id].users);
       });
       return (
-            <div>
-            {users_movies.map((movie)=>(
-            <p>
+        <div>
+          {users_movies.map((movie)=>
+            <div key={movie.name}>
               <h2>{movie.name}</h2>
-              <p>Liked By:</p>
-              <ul>
+              <div>
+                <p>Liked By:</p>
                 <ListUsers users={movie.users} />
-              </ul>
-            </p>
-            ))}
-			</div>
+              </div>
+			      </div>
+          )}
+			  </div>
       )
     }
 }
